@@ -10,7 +10,7 @@ oidc_client_id         = "cadence-production"
 oidc_client_secret_arn = "arn:aws:secretsmanager:us-east-1:123456789012:secret:cadence-oidc"
 
 openai_api_key_secret_arn = "arn:aws:secretsmanager:us-east-1:123456789012:secret:cadence-openai"
-openai_cadence_store_id     = "vs_replace_me"
+openai_vector_store_id     = "vs_replace_me"
 
 protect_data  = true
 aurora_min_acu = 0.5
