@@ -1,0 +1,10 @@
+export const rbacConfig = {
+  roles: {
+    owner:{label:"Owner",description:"Full control of security, policy, and workspace data."}, admin:{label:"Admin",description:"Manages workspaces, integrations, automation, and access."},
+    portfolio_manager:{label:"Portfolio manager",description:"Runs portfolios, boards, dependencies, and capacity."}, project_manager:{label:"Project manager",description:"Plans and operates assigned boards."},
+    contributor:{label:"Contributor",description:"Creates and updates assigned work."}, viewer:{label:"Viewer",description:"Reads and comments without a paid seat."}, auditor:{label:"Auditor",description:"Reads immutable history and reports."},
+  },
+  permissions:{"dashboard.view":"View portfolio health","items.manage":"Create and update work items","boards.manage":"Manage boards and custom columns","portfolios.manage":"Manage portfolios and dependencies","automation.manage":"Publish versioned automations","workload.view":"View workload and capacity","comments.create":"Comment on work","assistant.ask":"Ask the portfolio copilot","audit.view":"Read audit history","access.manage":"Configure roles and identity mappings","settings.manage":"Manage workspace settings"},
+  rolePermissions:{owner:["*"],admin:["*"],portfolio_manager:["dashboard.view","items.manage","boards.manage","portfolios.manage","automation.manage","workload.view","comments.create","assistant.ask","audit.view"],project_manager:["dashboard.view","items.manage","boards.manage","workload.view","comments.create","assistant.ask"],contributor:["dashboard.view","items.manage","comments.create","assistant.ask"],viewer:["dashboard.view","comments.create"],auditor:["dashboard.view","audit.view"]} as Record<string,readonly string[]>,
+  identityGroupMappings:{"cadence-owners":"owner","cadence-admins":"admin","pmo-leads":"portfolio_manager","project-managers":"project_manager","cadence-contributors":"contributor","cadence-viewers":"viewer","internal-audit":"auditor"} as Record<string,string>, defaultRole:"viewer",
+};
